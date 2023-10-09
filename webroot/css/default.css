@@ -1,0 +1,279 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+}
+
+
+
+.footer {
+    background-color: var(--dark);
+    color: var(--light);
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.header {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.navbar {
+    box-sizing: border-box;
+    padding: 0rem 5rem 0rem 5rem;
+    display: flex;
+    
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-brand {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 1.25em;
+}
+
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+button.nav-link {
+    color: var(--light);
+    text-align: center;
+    padding: 0.5rem;
+    text-decoration: none;
+    background-color: #555;
+    margin: 0 0.5rem;
+    border-radius: 5px;
+    border: none;        
+    background: none;    
+    cursor: pointer;     
+}
+div.nav-link{
+    color: var(--light);
+    text-align: center;
+    text-decoration: none;
+    background-color: #555;
+    border-radius: 5px;
+    border: none;        
+    background: none;    
+    cursor: pointer;   
+}
+
+
+.nav-link:active {
+    background-color: #aaa;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    font-size: 0.9em;
+    min-width: 400px;
+}
+
+table thead tr {
+    background-color: var(--dark);
+    color: #fff;
+    text-align: left;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(255,255,255,0.2);
+ 
+ 
+    animation-name: frost;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.1,1,.2,1);
+}
+.frosted-glass{
+    backdrop-filter: saturate(180%) brightness(50%);
+    filter: blur(10px);
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--light);
+    top: 20%;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--grey);
+    width: 40rem !important;
+    height: 40rem !important;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12), 
+    0 4px 4px rgba(0,0,0,0.12), 
+    0 8px 8px rgba(0,0,0,0.12),
+    0 16px 16px rgba(0,0,0,0.12);    
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.1,1,.2,1);
+    border-radius: 1rem;
+}
+
+.close {
+    display: inline-block;
+    color: var(--light);
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--grey);
+    transition: color 0.125s linear;
+    position: absolute;
+    top: 0;
+    right: 1rem;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--blue);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes animatetop {
+    from {height:300px; top: 15%; opacity:0} 
+    to {height: 400px; top: 20%; opacity:1}
+}
+
+@keyframes frost {
+    from {backdrop-filter:saturate(0%) blur(0px)} 
+    to {backdrop-filter: saturate(180%) blur(10px)}
+}
+
+
+
+.nav-link-secondary {
+    color: var(--light);
+    text-align: center;
+    padding: 0.5em;
+    text-decoration: none;
+    background-color: #666; /* slightly less dark */
+    margin: 0 0.5em;
+    border-radius: 5px;
+    border: none;        
+    background: none;    
+    cursor: pointer;     
+}
+
+.nav-link-secondary:hover {
+    background-color: #888;
+}
+
+.nav-link-secondary:active {
+    background-color: #aaa;
+}
+
+.markdown-content {
+    all: initial;
+}
+.markdown-content *,
+.markdown-content *::before,
+.markdown-content *::after {
+    /*all: unset;*/       
+}              
+
+.markdown-content h1, 
+.markdown-content h2, 
+.markdown-content h3, 
+.markdown-content h4, 
+.markdown-content h5, 
+.markdown-content h6 {
+    color: var(--dark); /* Dark text for headers */
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.markdown-content h1 {
+    font-size: 1.75rem;
+    font-weight: bold;;
+}
+.markdown-content h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.markdown-content h3 {
+    font-size: 1.125rem;
+}
+.markdown-content h4 {
+    font-size: 1rem;
+}
+.markdown-content h5 {
+    font-size: 1rem;
+}
+.markdown-content h6 {
+    font-size: 0.875rem;
+}
+
+.markdown-content p {
+    color: #666; /* Slightly lighter text for paragraphs */
+    font-size: 1em;
+    line-height: 1.6em;
+    margin-bottom: 1em;
+}
+
+.markdown-content a {
+    color: #0366d6; /* Blue text for links */
+    text-decoration: none;
+}
+
+.markdown-content a:hover {
+    text-decoration: underline;
+}
+
+.markdown-content ul, 
+.markdown-content ol {
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+.markdown-content ul li, 
+.markdown-content ol li {
+    margin-bottom: 0.5em;
+}
+
+.markdown-content blockquote {
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    border-left: 0.25em solid #dfe2e5;
+    color: #6a737d;
+    background-color: #f6f8fa;
+}
+
+#myDataTableWrapper .dt-buttons {
+    float: right;
+}
+

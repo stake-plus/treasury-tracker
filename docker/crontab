@@ -1,0 +1,3 @@
+*/5 * * * * cd /var/www/treasurytracker/ ; bin/cake referenda_update
+0 0 * * * cd /var/www/treasurytracker/ ; bin/cake network_info
+

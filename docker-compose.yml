@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "9000:80"
+    volumes:
+      - .:/var/www/treasurytracker/
+    depends_on:
+      - db
+      - proxy
+
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    environment:
+      MYSQL_ROOT_PASSWORD: testing123
+    volumes:
+      - .:/var/www/treasurytracker/
+      - db_data:/var/lib/mysql
+
+  proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile.proxy
+    ports:
+      - "3000:3000"
+    volumes:
+      - nodeapp_volume:/usr/src/app
+
+volumes:
+  db_data:
+  nodeapp_volume:

@@ -1,0 +1,6 @@
+# Use the official MySQL 8 image from DockerHub
+FROM mysql:8.0
+
+# Set mysql root password
+ENV MYSQL_ROOT_PASSWORD=testing123
+

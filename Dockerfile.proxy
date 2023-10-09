@@ -1,0 +1,33 @@
+# Use an official Node.js runtime as the base image
+FROM node:16
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Install git
+RUN apt-get update && apt-get install -y git
+
+# Make the treasury tracker directory
+RUN mkdir -p /treasurytracker
+
+# Copy the content of the local src directory to the working directory
+COPY . /treasurytracker/
+
+# Clone your repository
+RUN git clone https://github.com/stake-plus/polkadotjs-proxy.git
+
+# Optionally, if the Node application is inside the cloned repository and you want to install its dependencies:
+WORKDIR /usr/src/app/polkadotjs-proxy
+
+# Run npm install
+RUN npm install
+
+# Execute startup script
+RUN chmod 0755 /treasurytracker/docker/proxy-startup.sh
+RUN ["/treasurytracker/docker/proxy-startup.sh"]
+
+# Optionally expose any necessary ports if your app needs them
+EXPOSE 3000
+
+# Specify the command to run when the container starts
+CMD ["node", "server.js"]

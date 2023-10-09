@@ -1,0 +1,56 @@
+# Use the official PHP image with PHP 8
+FROM php:8-apache
+
+# Install necessary PHP extensions and tools
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    zip \
+    unzip \
+    cron \
+    default-mysql-client \
+    libonig-dev \
+    libicu-dev \
+    && docker-php-ext-install pdo pdo_mysql zip mbstring opcache intl \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+# Enable Apache mod_rewrite and headers
+RUN a2enmod rewrite headers
+
+# Specify the working directory
+WORKDIR /var/www/treasurytracker/
+
+# Make the treasury tracker directory
+RUN mkdir -p /var/www/treasurytracker
+
+# Copy the content of the local src directory to the working directory
+COPY . /var/www/treasurytracker/
+
+# Copy the custom Apache configuration
+COPY docker/apache-config.conf /etc/apache2/sites-available/000-default.conf
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Install Composer dependencies
+RUN composer install
+
+# Set up crontab
+COPY docker/crontab /etc/cron.d/crontab-file
+RUN chmod 0644 /etc/cron.d/crontab-file
+RUN crontab /etc/cron.d/crontab-file
+
+# Clean up
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Copy launch file
+COPY ./docker/web-startup.sh /usr/local/bin/
+
+# Set file mode
+RUN chmod 0755 /usr/local/bin/web-startup.sh /var/www/treasurytracker/bin/cake
+
+# Expose ports
+EXPOSE 80
+
+# Run startup file
+CMD ["/usr/local/bin/web-startup.sh"]
