@@ -38,7 +38,6 @@ To get started with the Treasury Tracker:
 
 ### Pre-requisites
 
-- Ensure you have the Treasury Tracker set up and running.
 - [Docker](https://www.docker.com/) installed and running.
 
 ### Steps:
