@@ -40,13 +40,12 @@ class ApplicationTest extends TestCase
      */
     public function testBootstrap()
     {
-        Configure::write('debug', false);
         $app = new Application(dirname(dirname(__DIR__)) . '/config');
         $app->bootstrap();
         $plugins = $app->getPlugins();
 
         $this->assertTrue($plugins->has('Bake'), 'plugins has Bake?');
-        $this->assertFalse($plugins->has('DebugKit'), 'plugins has DebugKit?');
+        $this->assertTrue($plugins->has('DebugKit'), 'plugins has DebugKit?');
         $this->assertTrue($plugins->has('Migrations'), 'plugins has Migrations?');
     }
 
@@ -92,6 +91,7 @@ class ApplicationTest extends TestCase
      */
     public function testMiddleware()
     {
+        Configure::write('debug', false);
         $app = new Application(dirname(dirname(__DIR__)) . '/config');
         $middleware = new MiddlewareQueue();
 
