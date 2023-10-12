@@ -74,11 +74,13 @@ class Application extends BaseApplication
      */
     public function middleware(MiddlewareQueue $middlewareQueue): MiddlewareQueue
     {
+        $errorConfig = Configure::read('Error', []);
+
 
         $middlewareQueue
             // Catch any exceptions in the lower layers,
             // and make an error page/response
-            ->add(new ErrorHandlerMiddleware(Configure::read('Error')))
+            ->add(new ErrorHandlerMiddleware($errorConfig))
 
             // Handle plugin/theme assets like CakePHP normally does.
             ->add(new AssetMiddleware([
