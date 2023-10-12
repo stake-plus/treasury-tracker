@@ -476,14 +476,18 @@ button.nay:hover{
 
   border-bottom: 1px solid var(--grey);
 }
-#banner-content{
+#banner-background{
   position: absolute; 
   width: 60vw; 
   height: 350px; 
   top: 0; 
-  left: -350px; 
+  left: -12.5%; 
 }
-
+.banner-content{
+  width: 40%;
+  margin-left: 12.5%;
+  z-index: 2;
+}
 
 
 a.referendum-link{
@@ -1367,8 +1371,24 @@ main{
   display: none;
 }
 
-@media only screen and (max-width: 1000px){
+@media only screen and (max-width: 1024px){
   .mobile{
     display: flex;
   }
+
+}
+
+@media only screen and (max-width: 1468px){
+  h1.big{
+    font-size: 2.5rem;
+  }
+  
+}
+
+
+@media only screen and (max-width: 1260px){
+  h1.big{
+    font-size: 2rem;
+  }
+  
 }

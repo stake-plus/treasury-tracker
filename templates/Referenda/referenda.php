@@ -206,10 +206,10 @@
     
     <div class="banner-container flex align-center">
             <div>
-                <div id="banner-content" class="flex align-center frosted-glass"></div>
+                <div id="banner-background" class="flex align-center frosted-glass"></div>
             </div>
 
-            <div class="flex col" style="width: 33%; margin-left: 12.5%; z-index: 2;">
+            <div class="flex col banner-content">
                 <p style="color: #f4f4f4;" class="label">Article Feature</p>
                 <h1 style="color: #f4f4f4;" class="big"> How Polkadot's Blockspace Empower's Developers </h1>
                 <div style="color: #f4f4f4;" class="line" style="border-color: black; opacity: 50%;"></div>

@@ -129,22 +129,21 @@
         </div>
 	  </div>
 
-<div class="columns flex col">
+<div class="columns flex col justify-center">
     <!-- ANALYTICS OVERVIEW CONTAINER -->
     <div class="overview-container">
-        <div class="column is-12  is-offset-1" style="position: relative;">
+        <div class="column is-offset-1" style="position: relative;">
             <div>
-                <h1  style="font-size: 2rem;"> Spend by Category</h1>
-                <br/>
+                <h1 style="font-size: 2rem;"> Spend by Category</h1>
             </div>
-            <div class="line" style="margin: 0;"></div>
+            <div class="line margin-top" ></div>
         </div>
     </div>
 
     <!-- PLACE CONTENT INSIDE THE BELOW DIV -->
-    <div class="column is-12  is-offset-1">
+    <div class="column is-offset-1">
 
-        <div id="chartContainer" class="container" style="width: 1200px; margin: 0 auto;">
+        <div id="chartContainer" class="container">
             <canvas id="myChart"></canvas>
             <div id="myDataTableWrapper">
                 <table id="dataTable">
