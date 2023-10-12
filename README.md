@@ -45,7 +45,8 @@ To get started with the Treasury Tracker:
 1. **Clone the Repository:** If you haven't already, clone the Treasury Tracker repository.
 2. **Build Docker Containers:** Navigate to the project's root directory and run `docker-compose up -d`. This will create and start the required containers.
 3. **Access the Application:** In your browser, navigate to `http://localhost:9000` (or the port you've set in your docker-compose file) to access the application.
-4. **Run Tests:** Navigate to the project's root directory and run the test suite with `./vendor/bin/phpunit`.
+4. **Access CLI:** Login to the project's web docker container `docker exec -it docker-test_web_1 /bin/bash`.
+5. **Run Tests:** Navigate to the project's root directory and run the test suite with `./vendor/bin/phpunit -v tests`.
 
 ## Configuration
 
