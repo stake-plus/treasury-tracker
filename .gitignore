@@ -1,0 +1,7 @@
+tmp/
+logs/
+config/
+nodejs/node_modules/
+vendor/
+composer-setup.php
+composer.lock
